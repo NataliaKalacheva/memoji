@@ -1,0 +1,86 @@
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+
+  background: #cfd0cf;
+  color: #434444;
+}
+
+/* header */
+.title {
+  font: Arial, sans-serif;
+  font-size: 42px;
+  margin: 40px 0;
+  text-align: center;
+  line-height: 47px;
+}
+
+/*game*/
+
+.card__box {
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 130px 130px 130px 130px;
+  grid-template-rows: 130px 130px 130px;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  perspective: 600px;
+  box-sizing: border-box;
+}
+
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 9px;
+
+  cursor: pointer;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  border: 5px solid #fff;
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+.front {
+  background: linear-gradient(45deg, #22ab93, #19668d);
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: #fff;
+  transform: rotateY(180deg);
+}
+.card__inner.show {
+  transform: rotateY(180deg);
+}
+
+.memoji {
+  font-size: 75px;
+  text-align: center;
+}
