@@ -21,8 +21,8 @@ let moves = 0;
 
 let timer = {
   el: document.getElementById("timer"),
-  min: 00,
-  sec: 05,
+  min: 01,
+  sec: 00,
   initialize() {
     let currentTime;
     timer.sec--;
@@ -92,6 +92,7 @@ function boxHandler(e) {
 function restartHandler() {
   closeResult();
   timer.stop();
+  timer.el.innerText = "00:00";
   renderMemoji(memoji);
   chosenCards = [];
   currentCards = [];
