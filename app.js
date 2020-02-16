@@ -208,9 +208,16 @@ function showResult() {
   let result = document.getElementById("modal");
 
   if (isWinner()) {
-    result.querySelector(".result__text").innerText = "Winner";
+    result.querySelector(".result__text").innerHTML = `
+    <span class="result__letter">W</span>
+    <span class="result__letter">i</span>
+    <span class="result__letter">n</span>`;
   } else {
-    result.querySelector(".result__text").innerText = "Loose";
+    result.querySelector(".result__text").innerHTML = `
+    <span class="result__letter">L</span>
+    <span class="result__letter">o</span>
+    <span class="result__letter">s</span>
+    <span class="result__letter">e</span>`;
   }
 
   if (result) {
