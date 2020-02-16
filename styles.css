@@ -8,13 +8,14 @@ body {
   width: 100%;
   margin: 0 auto;
 
+  font-family: Arial, sans-serif;
   background: #cfd0cf;
   color: #434444;
 }
 
 /* header */
+
 .title {
-  font: Arial, sans-serif;
   font-size: 42px;
   margin: 40px 0;
   text-align: center;
@@ -25,6 +26,7 @@ body {
 
 .card__box {
   margin: 0 auto;
+  max-width: 700px;
 
   display: grid;
   grid-template-columns: 130px 130px 130px 130px;
@@ -77,10 +79,109 @@ body {
   background: #fff;
   transform: rotateY(180deg);
 }
-.card__inner.show {
-  transform: rotateY(180deg);
-}
 
+.card__inner.show {
+  animation: rotate 0.5s linear;
+  animation-fill-mode: forwards;
+}
+.card__inner.close {
+  animation: rotate-back 0.5s linear;
+  animation-fill-mode: forwards;
+}
 .default {
   pointer-events: none;
+}
+
+.success .back {
+  background: #5ad66f;
+}
+
+.danger .back {
+  background: #f44336;
+}
+
+@keyframes rotate {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes rotate-back {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: 0;
+  }
+}
+
+/*timer*/
+
+#timer {
+  margin: 30px auto;
+  text-align: center;
+
+  font-size: 32px;
+  line-height: 36px;
+}
+
+/*modal window with result*/
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+  display: block;
+}
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 20%;
+  min-width: 350px;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.result__text {
+  margin-bottom: 40px;
+  font-size: 48px;
+  text-align: center;
+}
+
+.result__btn {
+  display: block;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  font-size: 20px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #ffffff;
+
+  border: none;
+  background: linear-gradient(90deg, #19668d, #22ab93);
+  border-radius: 9px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  cursor: pointer;
+}
+
+.result__btn:active {
+  box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.5);
 }
