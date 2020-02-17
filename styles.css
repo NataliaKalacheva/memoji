@@ -83,7 +83,7 @@ body {
   font-size: 75px;
   text-align: center;
   background: #fff;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
   transition: background 0.3s linear;
 }
 
@@ -92,12 +92,10 @@ body {
 }
 
 .card__inner.show {
-  animation: rotate 0.5s linear;
-  animation-fill-mode: forwards;
+  animation: rotate 0.3s linear 1 normal 0s forwards;
 }
 .card__inner.close {
-  animation: rotate-back 0.5s linear;
-  animation-fill-mode: forwards;
+  animation: rotate-back 0.3s linear 1 normal 0s forwards;
 }
 
 .card__inner img {
