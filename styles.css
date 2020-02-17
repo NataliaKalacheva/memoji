@@ -8,15 +8,19 @@ body {
   width: 100%;
   margin: 0 auto;
 
-  font-family: Arial, sans-serif;
-  background: #cfd0cf;
-  color: #434444;
+  font-family: "Modak", cursive;
+  font-weight: 400;
+  background-color: #cfd0cf;
+  background: url(img/bg.jpg) no-repeat;
+  background-size: cover;
+  color: #42024e;
 }
 
 /* header */
 
 .title {
   font-size: 42px;
+  font-weight: 400;
   margin: 40px 0;
   text-align: center;
   line-height: 47px;
@@ -67,7 +71,7 @@ body {
 }
 .front {
   border: 5px solid #fff;
-  background: linear-gradient(45deg, #22ab93, #19668d);
+  background: linear-gradient(45deg, #ffc3c8, #2371f3);
   transition: filter 0.2s linear;
 }
 
@@ -94,16 +98,22 @@ body {
   animation: rotate-back 0.5s linear;
   animation-fill-mode: forwards;
 }
+
+.card__inner img {
+  display: block;
+  margin: 0 auto;
+}
+
 .default {
   pointer-events: none;
 }
 
 .success .back {
-  background: #5ad66f;
+  background: #61f6ae;
 }
 
 .danger .back {
-  background: #f44336;
+  background: #f25454;
 }
 
 @keyframes rotate {
@@ -167,14 +177,13 @@ body {
   position: relative;
   margin-bottom: 40px;
   font-size: 48px;
-  font-weight: 700;
   text-align: center;
 }
 .result__letter {
   position: relative;
   top: 20px;
   display: inline-block;
-  margin: 0 -7px 10px;
+  margin: 0 0 10px;
   animation: jumping 0.5s ease-in-out infinite alternate;
 }
 .result__letter:nth-child(2) {
@@ -196,12 +205,12 @@ body {
   padding: 0 30px;
 
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   font-family: inherit;
-  color: #ffffff;
+  color: #57385d;
 
   border: none;
-  background: linear-gradient(90deg, #19668d, #22ab93);
+  background: linear-gradient(90deg, #ffc3c8, #2371f3);
   border-radius: 9px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 
@@ -209,6 +218,7 @@ body {
   cursor: pointer;
 }
 .result__btn:hover {
+  color: #42024e;
   filter: brightness(1.1);
 }
 
@@ -220,5 +230,25 @@ body {
   100% {
     top: 0px;
     transform: scaleY(1.5);
+  }
+}
+
+@media (max-width: 770px) {
+  .card__box {
+    max-width: 440px;
+    grid-template-columns: 130px 130px 130px;
+    grid-template-rows: 130px 130px 130px 130px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card__box {
+    max-width: 440px;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 }

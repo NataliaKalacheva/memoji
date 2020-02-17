@@ -13,6 +13,22 @@ let memoji = [
   "🦄",
   "🐞"
 ];
+
+let emoji = [
+  "img/memoji/unicorn.png",
+  "img/memoji/rabbit.png",
+  "img/memoji/frog.png",
+  "img/memoji/pig.png",
+  "img/memoji/dog.png",
+  "img/memoji/koala.png",
+  "img/memoji/unicorn.png",
+  "img/memoji/rabbit.png",
+  "img/memoji/frog.png",
+  "img/memoji/pig.png",
+  "img/memoji/dog.png",
+  "img/memoji/koala.png"
+];
+
 let box = document.getElementById("box");
 let currentCards = [];
 let chosenCards = [];
@@ -66,7 +82,7 @@ let timer = {
 
 // events
 
-renderMemoji(memoji);
+renderMemoji(emoji);
 
 box.addEventListener("click", boxHandler);
 restartBtn.addEventListener("click", restartHandler);
@@ -74,8 +90,9 @@ restartBtn.addEventListener("click", restartHandler);
 // handlers
 
 function boxHandler(e) {
-  if (e.target.parentNode.classList.contains("card__inner")) {
-    showCard.call(e.target.parentNode);
+  let card = e.target.closest(".card__inner");
+  if (card) {
+    showCard.call(card);
     moves++;
   }
 
@@ -93,7 +110,7 @@ function restartHandler() {
   closeResult();
   timer.stop();
   timer.el.innerText = "00:00";
-  renderMemoji(memoji);
+  renderMemoji(emoji);
   chosenCards = [];
   currentCards = [];
   moves = 0;
@@ -172,7 +189,7 @@ function showCard() {
       return this.el.querySelector(".back");
     },
     memoji: function() {
-      return this.back().innerText;
+      return this.back().querySelector("img").src;
     }
   });
 
@@ -199,7 +216,7 @@ function templateEl(el) {
     <div class="card__inner">
       <div class="front"></div>
       <div class="back">
-        ${el}
+      <img src="${el}" alt="memoji" width="75" height="75"/>
       </div>
     </div>
   </div>`;
@@ -223,6 +240,7 @@ function showResult() {
 
   if (result) {
     result.classList.add("show");
+    document.body.style.overflow = "hidden";
   }
 }
 
@@ -231,5 +249,6 @@ function closeResult() {
 
   if (result) {
     result.classList.remove("show");
+    document.body.style.overflow = "auto";
   }
 }
