@@ -6,6 +6,7 @@
 
 body {
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
 
   font-family: "Modak", cursive;
@@ -100,8 +101,12 @@ body {
 }
 
 .card__inner img {
-  display: block;
+  display: none;
   margin: 0 auto;
+}
+
+.show img {
+  display: block;
 }
 
 .default {
@@ -152,8 +157,8 @@ body {
   top: 0;
   left: 0;
 
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
 }
 
